@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Адмін-статистика</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Статистика замовлень</h1>
+    <a href="/admin">← Повернутися до адмін-панелі</a>
+
+    <table>
+        <tr>
+            <th>Назва страви</th>
+            <th>Кількість замовлень</th>
+            <th>Виручка (грн)</th>
+        </tr>
+        {% for dish in stats %}
+        <tr>
+            <td>{{ dish.name }}</td>
+            <td>{{ dish.total_orders }}</td>
+            <td>{{ dish.revenue }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
